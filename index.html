@@ -8,10 +8,7 @@
 
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -21,52 +18,50 @@
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.2/vue.global.prod.min.js"
-      integrity="sha512-YrmKYDNQKVmL5Y3xfdyNrp7atx+/XpIevYmFWoXMBitv2UitzwPwDzg/1H2UnBwelWgzDUd8Ex7L8bw61aK0jA=="
-      crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
-    <!-- this serves the unbundled version -->
-    <script src="main.mjs" type="module"></script>
-
-    <!-- alternatively you can use the bundled version
-     <script src="build/bundle.mjs" type="module"></script>
-    -->
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@furcan/iconpicker@1.5.0/dist/iconpicker-1.5.0.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@furcan/iconpicker@1.5.0/dist/iconpicker-1.5.0.min.js"></script>
-    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.6/js/lib/beautify-html.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&family=Lobster&family=Playfair+Display&family=Raleway&family=Cutive+Mono&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
-    />
-
-    <style>
-      .github-fork-ribbon:before {
-        background-color: #333;
-      }
-    </style>
-   
+ 
+     <link
+       rel="stylesheet"
+       href="https://cdn.jsdelivr.net/npm/@furcan/iconpicker@1.5.0/dist/iconpicker-1.5.0.css"
+     />
+     <script src="https://cdn.jsdelivr.net/npm/@furcan/iconpicker@1.5.0/dist/iconpicker-1.5.0.min.js"></script>
+     <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.6/js/lib/beautify-html.js"></script>
+ 
+     <link rel="preconnect" href="https://fonts.gstatic.com" />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&family=Lobster&family=Playfair+Display&family=Raleway&family=Cutive+Mono&display=swap" rel="stylesheet" />
+ 
+     <link
+       rel="stylesheet"
+       href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
+     />
+ 
+     <style>
+       .github-fork-ribbon:before {
+         background-color: #333;
+       }
+     </style>
   </head>
 
   <body>
     
+    <!-- <swiper-container init="false" class="mySwiper3">
+    </swiper-container>
+
+    <p class="append-buttons">
+      <a href="#" class="slide-1">Slide 1</a>
+      <a href="#" class="slide-250">Slide 250</a>
+      <a href="#" class="slide-500">Slide 500</a>
+    </p> -->
+        
     <main>
+      
+      <div id="page">
 
-      <div id="page" class="container">
+        <div id="body_m" class="container">
 
-        <div id="body_m">
-          <swiper-container class="mySwiper" pagination="true" navigation="true" loop="true">
+          <swiper-container class="mySwiper" style="--swiper-navigation-color: #fff; --swiper-navigation-nextEl: 5px; --swiper-pagination-color: #fff" thumbs-swiper=".mySwiper2" navigation="true">
             <!--  -->
             <swiper-slide v-for="item in entries">
               <template v-if="item.layout == 'header'">
@@ -90,6 +85,9 @@
               <template v-if="item.innerlayout == 'innertemplate4'">
                 <wdgt-innertemplate4 v-bind:item="item"></wdgt-innertemplate4>
               </template>
+              <template v-if="item.innerlayout == 'innertemplate5'">
+                <wdgt-innertemplate5 v-bind:item="item"></wdgt-innertemplate5>
+              </template>
               <template v-if="item.footerlayout == 'ftemplate1'">
                 <wdgt-ftemplate1 v-bind:item="item"></wdgt-ftemplate1>
               </template>
@@ -99,6 +97,44 @@
             </swiper-slide>
             <!--  -->
           </swiper-container>
+
+          <swiper-container class="mySwiper2" space-between="10" slides-per-view="10" free-mode="true"
+            watch-slides-progress="true">
+            <swiper-slide v-for="item in entries" :key="item.Page_name">
+              <template v-if="item.layout == 'header'">
+                <img src="./components/header/template1/preview.png" />
+              </template>
+              <template v-if="item.headerlayout == 'template1'">
+                <img :id="item.Page_name" src="./components/header/template1/preview.png" />
+              </template>
+              <template v-if="item.headerlayout == 'template2'">
+                <img src="./components/header/template2/preview.png" />
+              </template>
+              <template v-if="item.innerlayout == 'innertemplate1'">
+                <img src="./components/innerpages/innertemplate1/preview.png" />
+              </template>
+              <template v-if="item.innerlayout == 'innertemplate2'">
+                <img src="./components/innerpages/innertemplate2/preview.png" />
+              </template>
+              <template v-if="item.innerlayout == 'innertemplate3'">
+                <img src="./components/innerpages/innertemplate3/preview.png" />
+              </template>
+              <template v-if="item.innerlayout == 'innertemplate4'">
+                <img src="./components/innerpages/innertemplate4/preview.png" />
+              </template>
+              <template v-if="item.innerlayout == 'innertemplate5'">
+                <img src="./components/innerpages/innertemplate5/preview.png" />
+              </template>
+              <template v-if="item.footerlayout == 'ftemplate1'">
+                <img src="./components/footer/ftemplate1/preview.png" />
+              </template>
+              <template v-if="item.footerlayout == 'ftemplate2'">
+                <img src="./components/footer/ftemplate2/preview.png" />
+              </template>
+            </swiper-slide>
+          </swiper-container>
+
+          
         </div>
 
       </div>
@@ -112,8 +148,11 @@
         v-bind:entries="entries"
       ></page-editor>
     </main>
+    <script src="main.mjs" type="module"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
+    <script>
+      
+    </script>
   </body>
 </html>

@@ -5,13 +5,12 @@ const html = String.raw;
 
 const template = html`
   <section
-    :id="item.id"
-    class="editable text-center"
-    data-fields="Page_name=txt&amp;title=txt&amp;sec1_title=txt&amp;sec1_content=rte&amp;sec1_img=img&amp;sec2_title=txt&amp;sec2_content=rte&amp;sec2_img=img&amp;sec3_title=txt&amp;sec3_content=rte&amp;sec3_img=img&amp;"
+    class="editable"
+    
   >
-    <div class="inner-container p-4 text-left">
+    <div :id="item.id" class="editable inner-container p-8 text-left" data-fields="Page_name=txt&amp;title=txt&amp;sec1_title=txt&amp;sec1_content=rte&amp;sec1_img=img&amp;sec2_title=txt&amp;sec2_content=rte&amp;sec2_img=img&amp;sec3_title=txt&amp;sec3_content=rte&amp;sec3_img=img&amp;">
       <h1 class="text-primary mb-3">{{item.title}}</h1>
-      <div class="d-flex flex-column gap-30">
+      <div class="d-flex flex-column gap-30 pt-4">
         <div class="row content" id="mel">
           <div class="col-md-8">
             <h5 class="text-uppercase active" data-href="#mel">{{item.sec1_title}}</h5>

@@ -4,22 +4,19 @@ const html = String.raw;
 
 const template = html`
   <section
-    :id="item.id"
-    class="editable text-center"
+    class="editable"
     :style="{ 
       background: (item.image2 ? 'url(' + def(item.image2) + ')' : 'url(/components/default_img.jpg)'),
       backgroundSize: 'cover', 
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center', 
     }"
-    data-fields="title=txt&amp;image=img&amp;image2=img&amp;subtitle=txt&amp;button_text=txt&amp;button_link=txt"
   >
-    <div class="inner-container">
+    <div :id="item.id" class="editable p-8 inner-container" data-fields="title=txt&amp;image=img&amp;image2=img&amp;subtitle=txt&amp;button_text=txt&amp;button_link=txt">
       <template v-if="item.image">
         <img class="brand-logo" :src="item.image" class="img-fluid" :alt="item.title + 'Logo image'" />
-        
       </template>
-      <div class="container-fluid pt-5">
+      <div class="container-fluid pt-3">
         <h1 class="text-white col-md-7 pt-5 ml-auto display-4 text-left">
           <span class="h1">{{ item.subtitle }}</span><br>
           {{ item.title }}

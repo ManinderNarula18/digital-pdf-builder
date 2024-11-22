@@ -43,7 +43,7 @@ section p {
   line-height: 1.5;
 }
 section {
-  padding: 25px;
+  /* padding: 25px; */
   position: relative;
   background: #fff;
 }
@@ -105,7 +105,7 @@ section {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 56.25%;
+  /* padding-top: 56.25%; */
   /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
@@ -132,8 +132,54 @@ section {
     background-color: #189fda;
     border-color: #189fda;
 }
-
-
+.temp_5 h1.heading {
+  font-size: 45px;
+  background-color: black;
+  color: white;
+  height: auto;
+  display: flex;
+  padding: 6px 6px 4px 6px;
+  width: fit-content;
+  line-height: 0.9;
+}
+.dps__grid {
+  display: grid!important;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  position: relative!important;
+}
+.dps__grid-item.image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.hspan2 {
+  grid-column: span 2;
+}
+.max-h417 {
+  max-height: 496px;
+  min-height: 496px;
+}
+.max-h332 {
+  max-height: 332px;
+  min-height: 332px;
+}
+.temp_5 .contents__sidebar {
+  background: #fa7831;
+}
+.temp_5 .contents__title {
+  margin-left: 30px;
+  padding-right: 15px;
+  background: transparent;
+}
+.video-left {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
 
 
 
@@ -602,7 +648,11 @@ h3{
 #headerMenu .modal-backdrop.show{
 	opacity:1;
 }
-
+.display-4 {
+  font-size: 3.3rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
 @media (min-width: 992px){
 .modal-lg, .modal-xl {
     max-width: 1110px;
@@ -845,4 +895,76 @@ button.close {
 }
 button:focus {
 	outline: none;
+}
+
+
+
+
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+swiper-container {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+.mySwiper {
+  height: 91.4vh;
+  width: 100%;
+}
+
+.mySwiper2 {
+  height: 78px;
+  box-sizing: border-box;
+  padding: 10px 0;
+  display: flex;
+  width: 100%;
+}
+
+.mySwiper2 swiper-slide {
+  max-width: 70px;
+  height: 100%;
+  opacity: 0.4;
+  justify-content: center;
+  color: #fff;
+  display: flex;
+  border: 1px solid #c9c9c9;
+  cursor: pointer;
+  box-shadow: 0 0 6px #0003;
+}
+.swiper-horizontal {
+  width: auto;
+}
+.swiper-wrapper {
+  justify-content: center;
+}
+.mySwiper2 .swiper-slide-thumb-active {
+  opacity: 1;
+}
+#body_m {
+  position: relative;
+}
+swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+.swiper-button-next {
+  right: -20px !important;
 }

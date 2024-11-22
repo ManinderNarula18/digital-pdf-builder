@@ -46,7 +46,7 @@ export default function Modalmenu({ item, all_entires, options = {} }) {
                   if (all_entire.Page_name && all_entire.Page_name.trim() !== '') {
                     return `
                       <div class="clickable contents__button" role="button" tabindex="0">
-                        <a href="#${all_entire.id}" class="contents__button-text">${all_entire.Page_name}</a><br>
+                        <a href="#${all_entire.id}" data-dismiss="modal" aria-label="Close" class="contents__button-text btnclose">${all_entire.Page_name}</a><br>
                       </div>
                     `;
                   }

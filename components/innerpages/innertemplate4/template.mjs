@@ -7,17 +7,17 @@ const html = String.raw;
 
 const template = html`
   <section
-    :id="item.id"
-    class="editable text-center"
+    
+    class="editable"
     :style="{ 
       background: (item.Bg_Image ? 'url(' + def(item.Bg_Image) + ')' : 'url(/components/default_img.jpg)'),
       backgroundSize: 'cover', 
       backgroundRepeat: 'no-repeat',
     }"
-    data-fields="Page_name=txt&amp;Bg_Image=img&amp;title=txt&amp;button_text=txt&amp;modal_Image=img&amp;modal_content=rte&amp;button2_text=txt&amp;modal_Image2=img&amp;modal_content_2=rte&amp;"
+    
   >
 
-    <div class="inner-container p-4 text-left text-white">
+    <div :id="item.id" class="editable inner-container p-8 text-left text-white" data-fields="Page_name=txt&amp;Bg_Image=img&amp;title=txt&amp;button_text=txt&amp;modal_Image=img&amp;modal_content=rte&amp;button2_text=txt&amp;modal_Image2=img&amp;modal_content_2=rte&amp;">
       <h2 class="mb-3 text-primary bg-white-50 py-3 px-3 d-inline-block">{{item.title}}</h2>
       <div class="row mt-3">
         <div class="col-auto ml-auto">

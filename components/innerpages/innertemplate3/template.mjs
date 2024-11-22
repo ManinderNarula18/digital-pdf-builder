@@ -5,18 +5,17 @@ const html = String.raw;
 
 const template = html`
   <section
-    :id="item.id"
-    class="editable text-center"
+    class="editable"
     :style="{ 
       background: (item.Bg_Image ? 'url(' + def(item.Bg_Image) + ')' : 'url(/components/default_img.jpg)'),
       backgroundSize: 'cover', 
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center', 
     }"
-    data-fields="Page_name=txt&amp;Bg_Image=img&amp;title=txt&amp;sec1_title=txt&amp;sec1_content=rte&amp;sec2_title=txt&amp;sec2_content=rte&amp;"
+    
   >
-    <div class="inner-container p-4 text-left">
-      <h2 class="mb-3 text-primary">About Melbourne</h2>
+    <div :id="item.id" class="editable inner-container p-8 text-left" data-fields="Page_name=txt&amp;Bg_Image=img&amp;title=txt&amp;sec1_title=txt&amp;sec1_content=rte&amp;sec2_title=txt&amp;sec2_content=rte&amp;">
+      <h2 class="mb-3 text-primary">{{item.title}}</h2>
       <div class="melContent pt-5">
         <div class="row mb-5">
           <div class="col-md-8 ml-auto">

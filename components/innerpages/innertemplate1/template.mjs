@@ -4,16 +4,14 @@ import Modalmenu from '../../modal/modalheadermenu.mjs'; // Import modal module
 const html = String.raw;
 const template = html`
   <section
-    :id="item.id"
-    class="editable text-center"
     :style="{ 
       background: (item.Bg_Image ? 'url(' + def(item.Bg_Image) + ')' : 'url(/components/default_img.jpg)'),
       backgroundSize: 'cover', 
       backgroundRepeat: 'no-repeat',
     }"
-    data-fields="Page_name=txt&amp;Bg_Image=img&amp;title=txt&amp;description=rte&amp;Professor=img&amp;Professor_name=txt&amp;"
+    class="editable"
   >
-    <div class="inner-container p-4 text-left">
+    <div :id="item.id" class="editable inner-container p-8 text-left" data-fields="Page_name=txt&amp;Bg_Image=img&amp;title=txt&amp;description=rte&amp;Professor=img&amp;Professor_name=txt&amp;">
       <div class="row">
         <h1 class="text-white col-md-7"><span class="h1">DEMO WORLD</span><br>
           {{ item.title }}

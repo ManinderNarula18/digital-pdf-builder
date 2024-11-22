@@ -56,6 +56,13 @@ const template = html`
             v-model="item[key]"
           />
 
+          <input
+            v-if="val == 'vidfile'"
+            type="file"
+            class="form-control"
+            @change="handleVideoUpload($event, key)"
+          />
+
         </div>
 
         <span v-if="item.header != 'header'">
@@ -76,9 +83,9 @@ const template = html`
           </div>
         </span>
 
-        <button class="btn btn-outline-success mb-5 w-100 save" @click="save">
+        <!--- <button class="btn btn-outline-success mb-5 w-100 save" @click="save">
           Save
-        </button>
+        </button>-->
       </div>
     </div>
   </transition>
@@ -111,14 +118,30 @@ export default {
     save: function () {
       try {
         // Save updated entries to localStorage
-        localStorage.setItem("entries", JSON.stringify(this.localEntries));
-        console.log("Entries saved:", this.localEntries);
+        localStorage.setItem("entries", JSON.stringify(this.entries));
+        console.log("Entries saved:", this.entries);
       } catch (e) {
         console.error("Failed to save entries:", e);
       }
       
       this.item = false;  // Close the editor
       location.reload();   // Reload the page after saving
+    },
+    
+    // Method to handle video file upload
+    handleVideoUpload(event, key) {
+      const file = event.target.files[0]; // Get the uploaded file
+      if (file && file.type.startsWith('video/')) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          // After the video is read as a URL, update the item with the video URL
+          this.item[key] = reader.result; // This stores the video as a data URL
+          console.log("Video uploaded:", reader.result);
+        };
+        reader.readAsDataURL(file); // Read the file as a data URL
+      } else {
+        alert("Please select a valid video file.");
+      }
     },
 
     setIcon: function (e) {
@@ -203,7 +226,7 @@ export default {
         let id = el.id;  // Get the ID of the clicked element
 
         // Find the corresponding item in localEntries using its ID
-        this.item = this.localEntries.find((x) => x.id === id);  // Set app.item from localEntries
+        this.item = this.entries.find((x) => x.id === id);  // Set app.item from localEntries
 
         // Retrieve custom fields for the editor (if any)
         let myfields = el.getAttribute("data-fields");

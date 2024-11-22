@@ -4,20 +4,18 @@ const html = String.raw;
 
 const template = html`
   <section
-    :id="item.id"
-    class="editable text-center"
+    class="editable"
     :style="{ 
       background: (item.Bg_Image ? 'url(' + def(item.Bg_Image) + ')' : 'url(/components/default_img.jpg)'),
       backgroundSize: 'cover', 
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center', 
     }"
-    data-fields="image=img&amp;Bg_Image=img&amp;phone=txt&amp;email=txt&amp;website=txt&amp;Facebook_Url=txt&amp;Twitter_Url=txt&amp;Youtube_Url=txt&amp;Linkdin_Url=txt&amp;Instagram_Url=txt&amp;description=rte&amp;title=txt&amp;"
   >
-    <div class="inner-container">
+    <div :id="item.id" class="editable inner-container p-8" data-fields="image=img&amp;Bg_Image=img&amp;phone=txt&amp;email=txt&amp;website=txt&amp;Facebook_Url=txt&amp;Twitter_Url=txt&amp;Youtube_Url=txt&amp;Linkdin_Url=txt&amp;Instagram_Url=txt&amp;description=rte&amp;title=txt&amp;">
       <div class="row">
         <div class="col-md-10 mx-auto text-white py-3">
-          <div class="col-4 mx-auto">
+          <div class="col-3 mx-auto">
             <div class="text-center py-3">
               <img :src="item.image || '/components/default_logo.png'" class="img-fluid" :alt="item.title + 'Logo image'" />
             </div>

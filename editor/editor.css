@@ -34,12 +34,12 @@
   grid-gap: 12px;
 }
 .editable > .inner-container {
-  border: 1px solid transparent;
-  min-height: calc(100vh - 50px);
+  /* border: 1px solid transparent; */
+  min-height: calc(100vh - 77px);
 }
 
 .editable > .inner-container:hover {
-  border: 1px dashed #333;
+  /* border: 1px dashed #333; */
   cursor: pointer;
 }
 
@@ -156,12 +156,14 @@
 }
 
 #dock {
-  position: fixed;
-  bottom: 30px;
+  position: absolute;
+  bottom: 78px;
   text-align: center;
-  width: 300px;
-  left: calc(50% - 150px);
+  width: 100%;
+  left: 0;
+  right: 0;
   z-index: 9;
+  background: rgb(255 255 255 / 30%);
 }
 
 #dock img {
@@ -223,4 +225,7 @@ a.list-group-item:hover {
 .info {
   padding-top: 5px;
   color: #777;
+}
+.p-8 {
+  padding: 3rem;
 }
